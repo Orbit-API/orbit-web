@@ -29,7 +29,12 @@
         <label>Telefone / Celular:</label>
         <input type="text" v-model="user.phone" placeholder="(12) 99999-9999" />
         <div class="buttons">
-          <button class="btn-user-list">Lista de Usuários</button>
+          <router-link to="/user-list"
+            ><button class="btn-user-list">
+              Lista de Usuários
+            </button></router-link
+          >
+
           <button class="btn-register">Cadastrar</button>
         </div>
       </form>

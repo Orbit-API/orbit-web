@@ -7,18 +7,27 @@
 
       <form @submit="onSubmit" @submit.prevent action="/">
         <h1>Lista de usuários</h1>
-
-        <router-link to="/user-list"
-          ><button class="btn-user-list">Cadastrar usuários</button></router-link
+        <table>
+          <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+          </tr>
+          <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+          </tr>
+        </table>
+        <router-link to="/"
+          ><button class="btn-form">Formulário</button></router-link
         >
       </form>
     </div>
   </div>
 </template>
 
-<script>
- 
-</script>
+<script></script>
 
 <style scoped>
 .container {
@@ -63,39 +72,28 @@
   color: #3e85b8;
 }
 
-.content form input {
-  box-sizing: border-box;
-
-  padding: 16px;
-  margin: 8px 0 30px;
-
-  height: 64px;
-
-  background: #f6f6f6;
-  border-radius: 16px;
-
-  appearance: none;
-  border: none;
+.content form table {
+  margin-bottom: 6.8rem;
 }
 
-.content form button {
-  font-family: "Inter";
+.content form table tr th {
+  text-align: left;
+
+  font-family: "Poppins";
   font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 22px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #cecece;
+}
 
-  color: #ffffff;
-  background: #3d6999;
+.content form table tr td {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
 
-  box-shadow: 2px 4px 8px rgba(132, 159, 191, 0.4);
-  border-radius: 8px;
-  padding: 14px;
-
-  width: 100%;
-  max-width: 300px;
-  align-self: center;
-  border: none;
+  color: #4b4b4d;
 }
 
 .content .buttons {
@@ -104,20 +102,7 @@
   align-items: center;
 }
 
-.content .buttons button {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-
-  width: 280px;
-  height: 64px;
-
-  background: #3e85b8;
-  border-radius: 16px;
-}
-
-.content .buttons .btn-user-list {
+.content .btn-form {
   transition: all 0.9s;
   cursor: pointer;
   width: 280px;
@@ -126,18 +111,21 @@
   border: 1px solid #4b4b4d;
   box-sizing: border-box;
   border-radius: 16px;
-  background: transparent;
+  background: transparent !important;
+
+  color: #4b4b4d;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
 
   color: #4b4b4d;
 }
 
-.content .buttons .btn-user-list:hover {
-  transition: all 0.9s;
-  transform: translateY(-5%);
-}
-
-.content .buttons .btn-register:hover {
-  cursor: pointer;
+.content .btn-form:hover {
   transition: all 0.9s;
   transform: translateY(-5%);
 }
