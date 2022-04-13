@@ -5,7 +5,7 @@
         <img src="../assets/Logo.svg" />
       </div>
 
-      <form @submit="onSubmit" @submit.prevent action="/">
+      <form>
         <h1>Lista de usuários</h1>
         <table>
           <tr>
@@ -13,10 +13,10 @@
             <th>Contact</th>
             <th>Country</th>
           </tr>
-          <tr>
-            <td>Alfreds Futterkiste</td>
-            <td>Maria Anders</td>
-            <td>Germany</td>
+          <tr v-for="user in users" :key="user.email">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
           </tr>
         </table>
         <router-link to="/"
@@ -27,7 +27,23 @@
   </div>
 </template>
 
-<script></script>
+<script>
+import axios from "axios";
+
+const response = await axios.get("https://localhost:8080/users");
+const users = response.data;
+
+export default {
+  data() {
+    return {
+      users,
+    };
+  },
+  methods: {
+    async getUsers() {},
+  },
+};
+</script>
 
 <style scoped>
 .container {

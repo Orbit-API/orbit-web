@@ -35,7 +35,7 @@ body {
   justify-content: center;
   display: flex;
 
-  margin-top: 6rem;
+  margin-top: 5rem;
 
   zoom: 80%;
 }

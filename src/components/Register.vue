@@ -27,14 +27,13 @@
           placeholder="Informe sua senha..."
         />
         <label>Telefone / Celular:</label>
-        <input type="text" v-model="user.phone" placeholder="(12) 99999-9999" />
+        <input type="text" v-model="user.phone" placeholder="(12)99999-9999" />
         <div class="buttons">
           <router-link to="/user-list"
             ><button class="btn-user-list">
               Lista de Usuários
             </button></router-link
           >
-
           <button class="btn-register">Cadastrar</button>
         </div>
       </form>
@@ -43,6 +42,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -55,20 +56,30 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
+    onSubmit(e) {
+      e.preventDefault();
+
       const user = {
         name: this.user.name,
         email: this.user.email,
         password: this.user.password,
         phone: this.user.phone,
       };
-      const oldUsers = JSON.parse(localStorage.getItem("#res_users"));
-      if (oldUsers) {
-        const newUsers = [...oldUsers, user];
-        localStorage.setItem("#res_users", JSON.stringify(newUsers));
+
+      if (!user.name || !user.email || !user.password || !user.phone) {
+        alert("Verifique se todos os campos estão preenchidos");
         return;
       }
-      localStorage.setItem("#res_users", JSON.stringify([user]));
+      this.storeUser({ user });
+    },
+
+    storeUser({ user }) {
+      axios.post("https://localhost:8080/users", {
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        email: user.password,
+      });
     },
   },
 };
