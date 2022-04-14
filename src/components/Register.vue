@@ -74,11 +74,11 @@ export default {
     },
 
     storeUser({ user }) {
-      axios.post("https://localhost:8080/users", {
+      axios.post("http://localhost:8080/users", {
         name: user.name,
-        email: user.email,
+        password: user.password,
         phone: user.phone,
-        email: user.password,
+        email: user.email,
       });
     },
   },

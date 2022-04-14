@@ -30,17 +30,22 @@
 <script>
 import axios from "axios";
 
-const response = await axios.get("https://localhost:8080/users");
-const users = response.data;
+let users = [];
 
 export default {
   data() {
     return {
-      users,
+      users: this.users,
     };
   },
-  methods: {
-    async getUsers() {},
+
+  async mounted() {
+    const response = await axios.get("http://localhost:8080/users");
+    this.users = response.data;
+
+    console.log("users", this.users);
+
+    return users;
   },
 };
 </script>
