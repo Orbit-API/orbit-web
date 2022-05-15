@@ -104,6 +104,8 @@ export default {
   box-shadow: 0px 4px 50px 5px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
   padding: 4rem;
+
+  height: 660px;
 }
 .content form {
   display: flex;
